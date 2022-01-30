@@ -1,0 +1,23 @@
+{
+  "name": "bookcatalog",
+  "version": "1.0.0",
+  "description": "запустите ваш веб-сервер, используя команду node rest-app,\r откройте http://localhost:3000",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sutorminevgeniy/bookcatalog.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sutorminevgeniy/bookcatalog/issues"
+  },
+  "homepage": "https://github.com/sutorminevgeniy/bookcatalog#readme",
+  "dependencies": {
+    "sequelize": "^6.15.0",
+    "sqlite3": "^5.0.2"
+  }
+}
