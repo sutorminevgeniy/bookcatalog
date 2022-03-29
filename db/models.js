@@ -26,7 +26,31 @@ Author.init({
   modelName: 'Author'
 });
 
+class Book extends Model {}
+Book.init({
+  name: {
+    type: Sequelize.STRING,
+    allowNull: false // allowNull defaults to true
+  },
+  description: {
+    type: Sequelize.TEXT
+  },
+  author_id: {
+    type: Sequelize.INTEGER,
+    references: {
+      // ссылка на другую модель
+      model: Author,
+      // название колонки модели-ссылки с первичным ключом
+      key: 'id',
+    }
+  }
+}, {
+  sequelize,
+  modelName: 'Book'
+});
+
 module.exports = {
     sequelize,
-    Author
+    Author,
+    Book
 };

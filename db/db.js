@@ -1,16 +1,10 @@
 const Sequelize = require('sequelize');
 
-const authorRes = require('./authors.json');
-
-
-
 // Настройка соединения с базой
 const sequelize = new Sequelize({
   dialect: 'sqlite',
   storage: './db/database.sqlite'
 });
-
-
 
 // Проверка соединения с базой
 async function run() {
