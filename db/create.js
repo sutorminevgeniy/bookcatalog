@@ -32,6 +32,10 @@ async function run() {
       description: 'Книга о жизни на каторге',
       author_id: author.id
     });
+    await Book.create({
+      name: 'Белый Бим Чёрное ухо',
+      description: 'Книга о верной собаке'
+    });
     console.log(book);
   } catch (error) {
     console.error('Unable to connect to the database:', error);
