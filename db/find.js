@@ -14,32 +14,32 @@ async function run() {
 
     // получение записей
     // const allAuthors = await Author.findAll();
-    // const allAuthors = await Author.findAll({
-    //   attributes: ['firstName', 'middleName', 'lastName', 'id'],
-    // });
-    // console.log(allAuthors);
-
-    // получение записи
-    const author = await Author.findOne({
-      where: {
-        id: 2,
-      },
-      attributes: ['lastName', 'id'],
+    const allAuthors = await Author.findAll({
+      attributes: ['lastName', 'firstName', 'middleName', 'id'],
+      order: [
+        ['lastName', 'ASC'], // Сортировка по фамилии (по возрастанию)
+        // ['lastName', 'DESC'], // Сортировка по фамилии (по убыванию)
+      ]
     });
-    console.log(author);
+    console.log(allAuthors);
+
+    // получение записи
+    // const author = await Author.findOne({
+    //   where: {
+    //     id: 2,
+    //   },
+    //   attributes: ['lastName', 'id'],
+    // });
+    // console.log(author);
 
 
     // получение записи
-    // const book = await Book.create({
-    //   name: 'Записки мертвого дома',
-    //   description: 'Книга о жизни на каторге',
-    //   author_id: author.id
-    // });
-    // await Book.create({
-    //   name: 'Белый Бим Чёрное ухо',
-    //   description: 'Книга о верной собаке'
-    // });
-    // console.log(book);
+    const book = await Book.findOne({
+      where: {
+        id: 1,
+      },
+    });
+    console.log(book);
   } catch (error) {
     console.error('Unable to connect to the database:', error);
   }
