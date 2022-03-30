@@ -38,6 +38,8 @@ async function run() {
       where: {
         id: 1,
       },
+      // сразу получаем корабль, которым управляет данный капитан
+      include: Author
     });
     console.log(book);
   } catch (error) {

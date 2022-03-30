@@ -35,19 +35,13 @@ Book.init({
   description: {
     type: Sequelize.TEXT
   },
-  author_id: {
-    type: Sequelize.INTEGER,
-    references: {
-      // ссылка на другую модель
-      model: Author,
-      // название колонки модели-ссылки с первичным ключом
-      key: 'id',
-    }
-  }
 }, {
   sequelize,
   modelName: 'Book'
 });
+
+Author.hasMany(Book);
+Book.belongsTo(Author);
 
 module.exports = {
     sequelize,

@@ -30,7 +30,7 @@ async function run() {
     const book = await Book.create({
       name: 'Записки мертвого дома',
       description: 'Книга о жизни на каторге',
-      author_id: author.id
+      AuthorId: author.id
     });
     await Book.create({
       name: 'Белый Бим Чёрное ухо',
