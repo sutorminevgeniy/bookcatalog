@@ -19,7 +19,8 @@ Author.init({
   }
 }, {
   sequelize,
-  modelName: 'Author'
+  modelName: 'Author',
+  // timestamps: false,
 });
 
 class Book extends Model {}
@@ -33,7 +34,8 @@ Book.init({
   },
 }, {
   sequelize,
-  modelName: 'Book'
+  modelName: 'Book',
+  // timestamps: false,
 });
 
 Author.hasMany(Book);

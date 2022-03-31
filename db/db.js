@@ -1,5 +1,3 @@
-const Sequelize = require('sequelize');
-
 const { sequelize } = require('./config');
 const { Author, Book } = require('./models');
 
@@ -14,17 +12,17 @@ class DataBase {
     }
   }
 
-  // создание записи
+  // создание записи автора
   static async createAuthor(row) {
     const author = await Author.create(row);
 
-    return author
+    return author.toJSON();
   }
-  // создание записей
+  // создание записей авторов
   static async createAuthors(rows) {
     const authors = await Author.bulkCreate(rows);
 
-    return authors
+    return authors.map(item => item.toJSON());
   }
   // получение автора по id
   static async findAuthorByID(id) {
@@ -33,7 +31,7 @@ class DataBase {
       include: Book,
     });
 
-    return author
+    return author.toJSON();
   }
   // получение всех авторов
   static async findAllAuthor(orderField = 'lastName', orderDirect = 'ASC') {
@@ -44,20 +42,20 @@ class DataBase {
       ],
     });
 
-    return allAuthors;
+    return allAuthors.map(item => item.toJSON());
   }
 
-  // создание записи
+  // создание записи книги
   static async createBook(row) {
     const book = await Book.create(row);
 
-    return book
+    return book.toJSON();
   }
-  // создание записей
+  // создание записей книг
   static async createBooks(rows) {
     const books = await Book.bulkCreate(rows);
 
-    return books
+    return books.map(item => item.toJSON());
   }
   // получение книги по id
   static async findBookByID(id) {
@@ -66,7 +64,7 @@ class DataBase {
       include: Author,
     });
 
-    return book
+    return book.toJSON();
   }
   // получение всех книг
   static async findAllBook(orderField = 'name', orderDirect = 'ASC') {
@@ -78,7 +76,7 @@ class DataBase {
       include: Author,
     });
 
-    return allBooks;
+    return allBooks.map(item => item.toJSON());
   }
 
   // закрытие соединения
