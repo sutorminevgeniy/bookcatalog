@@ -1,50 +1,22 @@
 const authorRes = require('./authors.json');
 
-const { sequelize, Author, Book } = require('./models');
+const { DataBase } = require('./db');
 
 // Проверка соединения с базой
 async function run() {
-  try {
-    await sequelize.authenticate();
-    console.log('Connection has been established successfully.');
+  await DataBase.run();
 
-    // синхронизация таблиц с существующими моделями
-    await sequelize.sync();
-    console.log('Tables sync.');
+  // получение записей
+  // const allAuthors = await DataBase.findAllAuthor();
+  // console.log(allAuthors);
+  // const allBooks = await DataBase.findAllBook();
+  // console.log(allBooks);
 
-    // получение записей
-    // const allAuthors = await Author.findAll();
-    const allAuthors = await Author.findAll({
-      attributes: ['lastName', 'firstName', 'middleName', 'id'],
-      order: [
-        ['lastName', 'ASC'], // Сортировка по фамилии (по возрастанию)
-        // ['lastName', 'DESC'], // Сортировка по фамилии (по убыванию)
-      ]
-    });
-    console.log(allAuthors);
-
-    // получение записи
-    // const author = await Author.findOne({
-    //   where: {
-    //     id: 2,
-    //   },
-    //   attributes: ['lastName', 'id'],
-    // });
-    // console.log(author);
-
-
-    // получение записи
-    const book = await Book.findOne({
-      where: {
-        id: 1,
-      },
-      // сразу получаем корабль, которым управляет данный капитан
-      include: Author
-    });
-    console.log(book);
-  } catch (error) {
-    console.error('Unable to connect to the database:', error);
-  }
+  // получение записи
+  const author = await DataBase.findAuthorByID(1);
+  console.log(author);
+  // const book = await DataBase.findBookByID(1);
+  // console.log(book);
 }
 
 run();

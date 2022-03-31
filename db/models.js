@@ -1,10 +1,6 @@
 const Sequelize = require('sequelize');
 
-// Настройка соединения с базой
-const sequelize = new Sequelize({
-  dialect: 'sqlite',
-  storage: './db/database.sqlite'
-});
+const { sequelize } = require('./config');
 
 // Создание моделей таблиц
 const Model = Sequelize.Model;
@@ -44,7 +40,6 @@ Author.hasMany(Book);
 Book.belongsTo(Author);
 
 module.exports = {
-    sequelize,
     Author,
     Book
 };
