@@ -2,11 +2,13 @@
 
 const http = require('http');
 
+const { DataBase } = require('../db');
+
 const hostname = '127.0.0.1';
 const port = 3000;
 
 // создаем сервер и подписываемся на событие "request"
-const server = http.createServer((req, res) => {
+const server = http.createServer(async (req, res) => {
   console.log(req.url);
   console.log(req.method);
   console.log(req.headers);
@@ -16,18 +18,23 @@ const server = http.createServer((req, res) => {
     res.statusCode = 200; // OK
     
     // разделение запросов по url
-    switch(req.url) {
-      case '/books':
-        res.setHeader('Content-Type', 'application/json');
-        res.end('{"books":"many books"}');
-        break
-      case '/':
-        res.setHeader('Content-Type', 'text/html');
-        res.end('Hello World');
-        break
-      default:
-        res.setHeader('Content-Type', 'text/plain');
-        res.end('Hello GET Default Request');
+    if (req.url === '/books') {
+      res.setHeader('Content-Type', 'application/json');
+      const allBooks = await DataBase.findAllBook(); 
+      res.end(JSON.stringify(allBooks));
+    }
+    else if (req.url === '/authors') {
+      res.setHeader('Content-Type', 'application/json');
+      const allAuthors = await DataBase.findAllAuthor(); 
+      res.end(JSON.stringify(allAuthors));
+    }
+    else if (req.url === '/') {
+      res.setHeader('Content-Type', 'text/html');
+      res.end('Hello World');
+    }
+    else {
+      res.setHeader('Content-Type', 'text/plain');
+      res.end('Hello GET Default Request');
     }
   }
   else if (req.method === 'POST') {
@@ -48,7 +55,9 @@ const server = http.createServer((req, res) => {
 });
 
 // запускаем сервер
-server.listen(port, hostname, () => {
+server.listen(port, hostname, async () => {
+  await DataBase.run();
+
   console.log(`Server running at http://${hostname}:${port}/`);
 });
 

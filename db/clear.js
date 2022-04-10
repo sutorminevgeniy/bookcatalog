@@ -1,7 +1,5 @@
 const { sequelize, Author } = require('./models');
 
-
-
 // Проверка соединения с базой
 async function run() {
   try {

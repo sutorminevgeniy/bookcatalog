@@ -1,6 +1,4 @@
-const authorRes = require('./authors.json');
-
-const { DataBase } = require('./db');
+const { DataBase } = require('.');
 
 // Проверка соединения с базой
 async function run() {
