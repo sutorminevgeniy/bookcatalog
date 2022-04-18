@@ -1,13 +1,15 @@
-.App {
-  text-align: center;
+.wrapper {
+  display: grid;
+  grid-template-areas: 
+  "header header"
+  "nav content"
+  "footer footer";
+  grid-template-rows: 70px 1fr 50px;
+  grid-template-columns: 2fr 10fr;
 }
 
-.App-logo {
-  height: 10vmin;
-  pointer-events: none;
-}
-
-.App-header {
+header {
+  grid-area: header;
   background-color: #282c34;
   min-height: 10vh;
   display: flex;
@@ -17,7 +19,10 @@
   font-size: calc(10px + 2vmin);
   color: white;
 }
-
+.App-logo {
+  height: 10vmin;
+  pointer-events: none;
+}
 .navigate {
   list-style: none;
   display: flex;
@@ -25,4 +30,18 @@
 }
 .navigate li {
   margin: 0 10px;
+}
+
+.nav {
+  grid-area: nav;
+  background-color: #bdd5fc;
+}
+
+.content {
+  grid-area: content;
+}
+
+.footer{
+  grid-area: footer;
+  background-color: #9afbb7;
 }
