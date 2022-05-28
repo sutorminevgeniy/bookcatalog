@@ -1,20 +1,24 @@
 import './App.css';
 import Header from './components/Header';
-import Books from './components/Books';
+import Books from './components/Books/Books';
 import Footer from './components/Footer';
-import Sidebar from './components/Sidebar';
+import Filter from './components/Filter';
 
 
 function App() {
   return (
     <div className="wrapper">
       <Header />
-      <div className="main">
-        <Sidebar />
+
+      <main>
+        <aside>
+          <Filter />
+        </aside>
+
         <div className='content'>
           <Books />
         </div>        
-      </div>
+      </main>
 
       <Footer />
     </div>

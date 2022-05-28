@@ -1,25 +1,23 @@
 .wrapper {
+  min-height: 100vh;
   display: grid;
-  grid-template-areas: 
-  "header"
-  "main"
-  "footer";
-  grid-template-rows: 70px 1fr 50px;
+  grid-template-areas: "header" "main" "footer";
+  grid-template-rows: auto 1fr auto;
 }
 
-.nav {
-  grid-area: nav;
-  background-color: #bdd5fc;
-}
 
-.main {
-  display: main;
+main {
+  width: 1240px;
+  margin: 0 auto;
   display: grid;
-  grid-template-areas: 
-  "nav content";
+  grid-area: main;
+  grid-template-areas: "aside content";
   grid-template-columns: 2fr 10fr;
 }
-
+aside {
+  grid-area: aside;
+  background-color: #bdd5fc;
+}
 .content {
   grid-area: content;
 }

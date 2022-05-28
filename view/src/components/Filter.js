@@ -1,11 +1,11 @@
-const Sidebar = () => {
+const Filter = () => {
   return (
-    <nav className='nav'>
+    <div className='filter'>
       <div>автор 1</div>
       <div>автор 2</div>
       <div>автор 3</div>
-    </nav>
+    </div>
   );
 };
 
-export default Sidebar;
+export default Filter;
