@@ -1,11 +1,11 @@
 import imgBookDefault from './book.svg';
 
-const Book = () => {
+const Book = (props) => {
   return (
     <div className="book">
-      <img src={imgBookDefault} />
-      <a href="" className="name">Книгa</a>
-      <a href="" className="author">Автор</a>
+      <img src={imgBookDefault} alt=""/>
+      <a href="" className="name">{props.name}</a>
+      <a href="" className="author">{props.author}</a>
     </div>
   );
 };

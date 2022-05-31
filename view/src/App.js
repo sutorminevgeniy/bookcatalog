@@ -1,6 +1,7 @@
 import './App.css';
 import Header from './components/Header';
 import Books from './components/Books/Books';
+import Authors from './components/Authors/Authors';
 import Footer from './components/Footer';
 import Filter from './components/Filter';
 
@@ -16,7 +17,8 @@ function App() {
         </aside>
 
         <div className='content'>
-          <Books />
+          {/* <Books /> */}
+          <Authors />
         </div>        
       </main>
 
