@@ -1,3 +1,5 @@
+import {BrowserRouter, Routes, Route} from 'react-router-dom';
+
 import './App.css';
 import Header from './components/Header';
 import Books from './components/Books/Books';
@@ -8,22 +10,26 @@ import Filter from './components/Filter';
 
 function App() {
   return (
-    <div className="wrapper">
-      <Header />
+    <BrowserRouter>
+      <div className="wrapper">
+        <Header />
 
-      <main>
-        <aside>
-          <Filter />
-        </aside>
+        <main>
+          <aside>
+            <Filter />
+          </aside>
 
-        <div className='content'>
-          {/* <Books /> */}
-          <Authors />
-        </div>        
-      </main>
+          <div className='content'>
+            <Routes>
+              <Route path='/books' element={<Books />} />
+              <Route path='/authors' element={<Authors />} />
+            </Routes>
+          </div>        
+        </main>
 
-      <Footer />
-    </div>
+        <Footer />
+      </div>
+    </BrowserRouter>
   );
 }
 
