@@ -18,10 +18,13 @@
   flex-direction: row;
   text-decoration: none;
 }
-.navigate li {
+.navigate li.navItem {
   margin: 0 10px;
 }
 .navigate a {
   color: white;
   text-decoration: none;
+}
+.navigate a.active {
+  color: gold;
 }
