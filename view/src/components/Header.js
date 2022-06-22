@@ -5,7 +5,7 @@ import {NavLink} from 'react-router-dom';
 
 const Header = () => {
   return (
-    <header className={style.header}>
+    <div className={style.header}>
       <img src={logo} className={style.logo} alt="logo" />
       <ul className={style.navigate}>
         <li className={style.navItem}>
@@ -29,7 +29,7 @@ const Header = () => {
             className={({ isActive }) => isActive ? style.active : undefined }>Жанры</NavLink>
         </li>
       </ul>
-    </header>
+    </div>
   );
 };
 

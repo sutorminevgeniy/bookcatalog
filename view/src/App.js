@@ -2,9 +2,10 @@ import {BrowserRouter, Routes, Route} from 'react-router-dom';
 
 import './App.css';
 import Header from './components/Header';
+import Footer from './components/Footer';
+
 import Books from './components/Books/Books';
 import Authors from './components/Authors/Authors';
-import Footer from './components/Footer';
 import Filter from './components/Filter';
 
 
@@ -12,7 +13,9 @@ function App() {
   return (
     <BrowserRouter>
       <div className="wrapper">
-        <Header />
+        <header>
+          <Header />
+        </header>
 
         <main>
           <aside>
@@ -27,7 +30,9 @@ function App() {
           </div>        
         </main>
 
-        <Footer />
+        <footer>
+          <Footer />
+        </footer>
       </div>
     </BrowserRouter>
   );

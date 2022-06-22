@@ -1,10 +1,16 @@
 .wrapper {
   min-height: 100vh;
   display: grid;
-  grid-template-areas: "header" "main" "footer";
   grid-template-rows: auto 1fr auto;
+  grid-template-areas: "header" "main" "footer";
 }
 
+header {
+  grid-area: header;
+  background-color: #282c34;
+  min-height: 100px;
+  color: white;
+}
 
 main {
   width: 1240px;
@@ -22,7 +28,7 @@ aside {
   grid-area: content;
 }
 
-.footer{
+footer{
   grid-area: footer;
   background-color: #9afbb7;
 }

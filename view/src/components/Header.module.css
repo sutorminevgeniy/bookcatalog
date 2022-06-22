@@ -1,12 +1,8 @@
 .header {
-  grid-area: header;
-  background-color: #282c34;
-  min-height: 100px;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  color: white;
 }
 .logo {
   height: 10vmin;
