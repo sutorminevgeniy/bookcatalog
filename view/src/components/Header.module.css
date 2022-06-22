@@ -1,12 +1,14 @@
 .header {
+  height: 100%;
   display: flex;
   flex-direction: row;
-  align-items: center;
   justify-content: center;
+  align-items: center;
 }
 .logo {
-  height: 10vmin;
-  pointer-events: none;
+  height: 60px;
+  width: 60px;
+  display: block;
 }
 .navigate {
   list-style: none;

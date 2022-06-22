@@ -8,7 +8,7 @@
 header {
   grid-area: header;
   background-color: #282c34;
-  min-height: 100px;
+  min-height: 80px;
   color: white;
 }
 
@@ -26,6 +26,7 @@ aside {
 }
 .content {
   grid-area: content;
+  padding: 10px;
 }
 
 footer{

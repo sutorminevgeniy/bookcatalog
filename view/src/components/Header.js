@@ -6,13 +6,11 @@ import {NavLink} from 'react-router-dom';
 const Header = () => {
   return (
     <div className={style.header}>
-      <img src={logo} className={style.logo} alt="logo" />
+      <NavLink className={style.logo} to="/">
+        <img src={logo} alt="logo" />
+      </NavLink>
+
       <ul className={style.navigate}>
-        <li className={style.navItem}>
-          <NavLink 
-            to="/"
-            className={({ isActive }) => isActive ? style.active : undefined }>О каталоге</NavLink>
-        </li>
         <li className={style.navItem}>
           <NavLink 
             to="/books"
@@ -25,8 +23,13 @@ const Header = () => {
         </li>
         <li className={style.navItem}>
           <NavLink
-            to="/genre"
-            className={({ isActive }) => isActive ? style.active : undefined }>Жанры</NavLink>
+            to="/news"
+            className={({ isActive }) => isActive ? style.active : undefined }>Новости</NavLink>
+        </li>
+        <li className={style.navItem}>
+          <NavLink 
+            to="/about"
+            className={({ isActive }) => isActive ? style.active : undefined }>О каталоге</NavLink>
         </li>
       </ul>
     </div>
