@@ -13,7 +13,7 @@ header {
 }
 
 main {
-  width: 1240px;
+  width: var(--main-width);
   margin: 0 auto;
   display: grid;
   grid-area: main;

@@ -1,0 +1,21 @@
+.bookList {
+    margin-bottom: 5px;
+}
+.book {
+    margin: 5px 0;
+}
+.book>a {
+    display: block;
+    text-decoration: none;
+    color: black;
+}
+.image {
+
+}
+.name {
+    font-size: 1.3rem;
+    font-weight: bold;
+}
+.author {
+
+}
